@@ -11,7 +11,7 @@ export const FARSI_CHAPTERS = [
   "ادب و هنر",
 ];
 
-type Draft = Omit<Activity, "character">;
+type Draft = Activity;
 
 const CH: Draft[][] = [
   // ۱ نهادها

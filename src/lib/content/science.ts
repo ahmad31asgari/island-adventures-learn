@@ -19,7 +19,7 @@ export const SCIENCE_CHAPTERS = [
   "نشانه‌های زندگی جانوران و گیاهان",
 ];
 
-type Draft = Omit<Activity, "character">;
+type Draft = Activity;
 
 const CH: Draft[][] = [
   [
