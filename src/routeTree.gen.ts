@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GiftsRouteImport } from './routes/gifts'
+import { Route as LeagueRouteImport } from './routes/league'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SubjectsRouteImport } from './routes/subjects'
+import { Route as LearnSubjectIndexRouteImport } from './routes/learn.$subject.index'
+import { Route as LearnSubjectIslandIndexRouteImport } from './routes/learn.$subject.island.$index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GiftsRoute = GiftsRouteImport.update({
+  id: '/gifts',
+  path: '/gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeagueRoute = LeagueRouteImport.update({
+  id: '/league',
+  path: '/league',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubjectsRoute = SubjectsRouteImport.update({
+  id: '/subjects',
+  path: '/subjects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnSubjectIndexRoute = LearnSubjectIndexRouteImport.update({
+  id: '/learn/$subject/',
+  path: '/learn/$subject/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnSubjectIslandIndexRoute = LearnSubjectIslandIndexRouteImport.update({
+  id: '/learn/$subject/island/$index',
+  path: '/learn/$subject/island/$index',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gifts': typeof GiftsRoute
+  '/league': typeof LeagueRoute
+  '/more': typeof MoreRoute
+  '/profile': typeof ProfileRoute
+  '/subjects': typeof SubjectsRoute
+  '/learn/$subject/': typeof LearnSubjectIndexRoute
+  '/learn/$subject/island/$index': typeof LearnSubjectIslandIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gifts': typeof GiftsRoute
+  '/league': typeof LeagueRoute
+  '/more': typeof MoreRoute
+  '/profile': typeof ProfileRoute
+  '/subjects': typeof SubjectsRoute
+  '/learn/$subject': typeof LearnSubjectIndexRoute
+  '/learn/$subject/island/$index': typeof LearnSubjectIslandIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gifts': typeof GiftsRoute
+  '/league': typeof LeagueRoute
+  '/more': typeof MoreRoute
+  '/profile': typeof ProfileRoute
+  '/subjects': typeof SubjectsRoute
+  '/learn/$subject/': typeof LearnSubjectIndexRoute
+  '/learn/$subject/island/$index': typeof LearnSubjectIslandIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/gifts'
+    | '/league'
+    | '/more'
+    | '/profile'
+    | '/subjects'
+    | '/learn/$subject/'
+    | '/learn/$subject/island/$index'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/gifts'
+    | '/league'
+    | '/more'
+    | '/profile'
+    | '/subjects'
+    | '/learn/$subject'
+    | '/learn/$subject/island/$index'
+  id:
+    | '__root__'
+    | '/'
+    | '/gifts'
+    | '/league'
+    | '/more'
+    | '/profile'
+    | '/subjects'
+    | '/learn/$subject/'
+    | '/learn/$subject/island/$index'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GiftsRoute: typeof GiftsRoute
+  LeagueRoute: typeof LeagueRoute
+  MoreRoute: typeof MoreRoute
+  ProfileRoute: typeof ProfileRoute
+  SubjectsRoute: typeof SubjectsRoute
+  LearnSubjectIndexRoute: typeof LearnSubjectIndexRoute
+  LearnSubjectIslandIndexRoute: typeof LearnSubjectIslandIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gifts': {
+      id: '/gifts'
+      path: '/gifts'
+      fullPath: '/gifts'
+      preLoaderRoute: typeof GiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/league': {
+      id: '/league'
+      path: '/league'
+      fullPath: '/league'
+      preLoaderRoute: typeof LeagueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subjects': {
+      id: '/subjects'
+      path: '/subjects'
+      fullPath: '/subjects'
+      preLoaderRoute: typeof SubjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$subject/': {
+      id: '/learn/$subject/'
+      path: '/learn/$subject'
+      fullPath: '/learn/$subject/'
+      preLoaderRoute: typeof LearnSubjectIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$subject/island/$index': {
+      id: '/learn/$subject/island/$index'
+      path: '/learn/$subject/island/$index'
+      fullPath: '/learn/$subject/island/$index'
+      preLoaderRoute: typeof LearnSubjectIslandIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GiftsRoute: GiftsRoute,
+  LeagueRoute: LeagueRoute,
+  MoreRoute: MoreRoute,
+  ProfileRoute: ProfileRoute,
+  SubjectsRoute: SubjectsRoute,
+  LearnSubjectIndexRoute: LearnSubjectIndexRoute,
+  LearnSubjectIslandIndexRoute: LearnSubjectIslandIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
