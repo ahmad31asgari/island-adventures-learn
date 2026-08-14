@@ -47,6 +47,7 @@
   --color-subject-math: var(--subject-math);
   --color-subject-farsi: var(--subject-farsi);
   --color-subject-science: var(--subject-science);
+  --color-subject-social: var(--subject-social);
 }
 
 :root {
@@ -81,6 +82,7 @@
   --subject-math: oklch(0.72 0.16 232);
   --subject-farsi: oklch(0.72 0.19 330);
   --subject-science: oklch(0.78 0.17 150);
+  --subject-social: oklch(0.72 0.18 45);
 }
 
 @layer base {

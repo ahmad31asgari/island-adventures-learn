@@ -1,4 +1,4 @@
-export type SubjectId = "math" | "farsi" | "science";
+export type SubjectId = "math" | "farsi" | "science" | "social";
 
 export type CharacterId = "ostad" | "boy" | "girl1" | "girl2" | "granny";
 
