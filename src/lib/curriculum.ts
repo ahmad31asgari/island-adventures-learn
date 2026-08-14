@@ -3,6 +3,7 @@ import { makeRng, intBetween, shuffle, fa } from "./rng";
 import { MATH_CHAPTERS, mathActivity } from "./content/math";
 import { FARSI_CHAPTERS, farsiActivity } from "./content/farsi";
 import { SCIENCE_CHAPTERS, scienceActivity } from "./content/science";
+import { SOCIAL_CHAPTERS, socialActivity } from "./content/social";
 import { SIDE_CHARACTERS } from "./characters";
 
 export interface SubjectMeta {
@@ -47,18 +48,29 @@ export const SUBJECTS: Record<SubjectId, SubjectMeta> = {
     maxActivities: 8,
     color: "var(--subject-science)",
   },
+  social: {
+    id: "social",
+    title: "اجتماعی",
+    emoji: "🌍",
+    chapters: SOCIAL_CHAPTERS,
+    islands: 50,
+    minActivities: 5,
+    maxActivities: 6,
+    color: "var(--subject-social)",
+  },
 };
 
-export const SUBJECT_LIST = [SUBJECTS.math, SUBJECTS.farsi, SUBJECTS.science];
+export const SUBJECT_LIST = [SUBJECTS.math, SUBJECTS.farsi, SUBJECTS.science, SUBJECTS.social];
 
 export function isSubject(value: string): value is SubjectId {
-  return value === "math" || value === "farsi" || value === "science";
+  return value === "math" || value === "farsi" || value === "science" || value === "social";
 }
 
 function generator(subject: SubjectId) {
   if (subject === "math") return mathActivity;
   if (subject === "farsi") return farsiActivity;
-  return scienceActivity;
+  if (subject === "science") return scienceActivity;
+  return socialActivity;
 }
 
 export function chapterOf(subject: SubjectId, islandIndex: number) {
