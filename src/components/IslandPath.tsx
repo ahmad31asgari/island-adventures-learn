@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Star, Headphones, Dumbbell, Video, BookOpen, Lock, Check } from "lucide-react";
-import { OSTAD_HAPPY } from "@/lib/characters";
+import { AnimatedOstad } from "@/components/AnimatedOstad";
 import { SUBJECTS, chapterOf, islandIcon } from "@/lib/curriculum";
 import { fa } from "@/lib/rng";
 import type { SubjectId } from "@/lib/types";
@@ -88,13 +88,10 @@ export function IslandPath({ subject, completed, current }: Props) {
                   </Link>
                 )}
                 {isCurrent && (
-                  <img
-                    src={OSTAD_HAPPY}
-                    alt="استاد سبیلو"
-                    loading="lazy"
-                    width={768}
-                    height={768}
-                    className="animate-bob pointer-events-none absolute -left-28 bottom-0 h-28 w-28 object-contain"
+                  <AnimatedOstad
+                    autoPlay
+                    interactive
+                    className="absolute -left-28 bottom-0 h-28 w-28"
                   />
                 )}
               </div>

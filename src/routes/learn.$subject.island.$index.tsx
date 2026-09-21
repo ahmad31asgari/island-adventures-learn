@@ -6,7 +6,7 @@ import { buildIsland, isSubject } from "@/lib/curriculum";
 import { completeIsland } from "@/lib/player";
 import { usePlayer } from "@/hooks/use-player";
 import { fa } from "@/lib/rng";
-import { OSTAD_HAPPY } from "@/lib/characters";
+import { AnimatedOstad } from "@/components/AnimatedOstad";
 
 export const Route = createFileRoute("/learn/$subject/island/$index")({
   head: () => ({
@@ -56,13 +56,7 @@ function IslandRun() {
   if (done) {
     return (
       <main className="flex min-h-[100dvh] flex-col items-center justify-center gap-5 px-6 text-center">
-        <img
-          src={OSTAD_HAPPY}
-          alt="استاد سبیلو"
-          width={768}
-          height={768}
-          className="animate-bob h-48 w-48 object-contain"
-        />
+        <AnimatedOstad mood="celebrate" interactive className="h-48 w-48" />
         <h1 className="text-2xl font-extrabold text-primary">جزیره تمام شد!</h1>
         <p className="font-bold">
           {fa(right)} از {fa(total)} درست • {fa(right * 10)} امتیاز

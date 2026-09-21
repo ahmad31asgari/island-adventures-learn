@@ -1,5 +1,9 @@
 import ostadHappy from "@/assets/char-ostad-happy.png";
 import ostadSad from "@/assets/char-ostad-sad.png";
+import ostadIdle from "@/assets/char-ostad-idle.png";
+import ostadCelebrate from "@/assets/char-ostad-celebrate.png";
+import ostadThink from "@/assets/char-ostad-think.png";
+import ostadWave from "@/assets/char-ostad-wave.png";
 import boy from "@/assets/char-boy.png";
 import girl1 from "@/assets/char-girl1.png";
 import girl2 from "@/assets/char-girl2.png";
@@ -55,6 +59,10 @@ export const CHARACTERS: Record<CharacterId, CharacterInfo> = {
 
 export const OSTAD_HAPPY = ostadHappy;
 export const OSTAD_SAD = ostadSad;
+export const OSTAD_IDLE = ostadIdle;
+export const OSTAD_CELEBRATE = ostadCelebrate;
+export const OSTAD_THINK = ostadThink;
+export const OSTAD_WAVE = ostadWave;
 
 export const SIDE_CHARACTERS: CharacterId[] = ["boy", "girl1", "girl2", "granny", "ostad"];
 
