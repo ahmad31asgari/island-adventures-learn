@@ -5,6 +5,7 @@ import { useSpeech } from "@/hooks/use-speech";
 import { playCorrect, playTap, playWrong } from "@/lib/sfx";
 import type { Activity, CharacterId } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { AnimatedOstad, type OstadMood } from "@/components/AnimatedOstad";
 
 type Act = Activity & { character: CharacterId };
 
@@ -96,6 +97,9 @@ export function ActivityCard({ activity, playerName, seed, onNext }: Props) {
       state === "wrong" && "border-destructive bg-destructive/20 text-destructive",
     );
 
+  const ostadMood: OstadMood =
+    phase === "answering" ? "idle" : correct ? "celebrate" : "thinking";
+
   return (
     <div className="flex min-h-[100dvh] flex-col">
       <div className="flex-1 space-y-5 px-4 pb-40 pt-4">
@@ -105,18 +109,27 @@ export function ActivityCard({ activity, playerName, seed, onNext }: Props) {
         </span>
 
         <div className="flex items-end gap-2">
-          <img
-            src={char.image}
-            alt={char.name}
-            loading="lazy"
-            width={768}
-            height={768}
-            className={cn(
-              "h-28 w-28 shrink-0 object-contain",
-              phase === "checked" && !correct && "animate-shake",
-              phase === "checked" && correct && "animate-bob",
-            )}
-          />
+          {activity.character === "ostad" ? (
+            <AnimatedOstad
+              mood={ostadMood}
+              autoPlay={phase === "answering"}
+              interactive={phase === "answering"}
+              className="h-28 w-28 shrink-0"
+            />
+          ) : (
+            <img
+              src={char.image}
+              alt={char.name}
+              loading="lazy"
+              width={768}
+              height={768}
+              className={cn(
+                "h-28 w-28 shrink-0 object-contain",
+                phase === "checked" && !correct && "animate-shake",
+                phase === "checked" && correct && "animate-pop-in",
+              )}
+            />
+          )}
           <div className="card-3d relative flex-1 p-3">
             <p className="text-base font-extrabold leading-7">{activity.prompt}</p>
             <button
